@@ -152,6 +152,37 @@
       transform: translateY(-1px);
     }
 
+    .template-picker {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-left: 8px;
+      border-left: 1px solid var(--card-border);
+    }
+
+    .template-select {
+      background: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 5px 10px;
+      border-radius: 9999px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .template-select option {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .template-select:hover {
+      border-color: var(--primary);
+    }
+
     .theme-dots {
       display: flex;
       gap: 6px;
@@ -481,6 +512,61 @@
       gap: 12px;
     }
 
+    /* MULTI-TEMPLATE LAYOUT THEMES */
+    /* 1. Executive Classic */
+    [data-layout="classic"] .resume-wrapper {
+      grid-template-columns: 280px 1fr;
+    }
+    [data-layout="classic"] .resume-header {
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(180deg, var(--badge-bg) 0%, transparent 100%);
+      border-bottom: 2px solid var(--primary);
+    }
+    [data-layout="classic"] .contact-grid {
+      justify-content: center;
+    }
+    [data-layout="classic"] .section-title::after {
+      background: var(--primary);
+      height: 1px;
+    }
+
+    /* 2. Tech & Developer Grid */
+    [data-layout="tech"] .resume-wrapper {
+      border: 2px solid var(--primary);
+      grid-template-columns: 290px 1fr;
+    }
+    [data-layout="tech"] .resume-header {
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 2px dashed var(--primary);
+    }
+    [data-layout="tech"] .info-card {
+      border-left: 3px solid var(--primary);
+    }
+    [data-layout="tech"] .tag {
+      font-family: monospace;
+      border-radius: 4px;
+    }
+
+    /* 3. Nordic Minimal */
+    [data-layout="nordic"] .resume-wrapper {
+      border-radius: 8px;
+      grid-template-columns: 275px 1fr;
+    }
+    [data-layout="nordic"] .resume-header {
+      background: transparent;
+      border-bottom: 1px dashed var(--card-border);
+    }
+    [data-layout="nordic"] .section-title::after {
+      display: none;
+    }
+    [data-layout="nordic"] .section-title {
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 6px;
+    }
+
     /* Editable Mode Hint */
     [contenteditable="true"] {
       outline: 2px dashed var(--primary);
@@ -645,6 +731,16 @@
       <i class="fa-solid fa-circle-half-stroke"></i> Mode
     </button>
     
+    <div class="template-picker" title="Switch Resume Template Design">
+      <i class="fa-solid fa-file-lines" style="color: var(--primary);"></i>
+      <select id="templateSelect" onchange="switchTemplate(this.value)" class="template-select">
+        <option value="modern">🎨 Modern Sidebar</option>
+        <option value="classic">💼 Executive Classic</option>
+        <option value="tech">⚡ Tech & Minimal</option>
+        <option value="nordic">🌿 Nordic Elegant</option>
+      </select>
+    </div>
+
     <div class="theme-dots" title="Select Color Theme">
       <div class="dot dot-indigo active" onclick="setAccent('indigo')"></div>
       <div class="dot dot-rose" onclick="setAccent('rose')"></div>
@@ -864,6 +960,10 @@
       document.documentElement.setAttribute('data-accent', color);
       document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
       document.querySelector(`.dot-${color}`).classList.add('active');
+    }
+
+    function switchTemplate(tpl) {
+      document.documentElement.setAttribute('data-layout', tpl);
     }
   </script>
 </body>
