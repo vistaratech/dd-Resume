@@ -9,7 +9,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -44,7 +44,7 @@
       --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
     }
 
-    /* Color Palette Themes */
+    /* Color Palette Themes (10 Themes) */
     [data-accent="rose"] {
       --primary: #f43f5e;
       --primary-hover: #e11d48;
@@ -80,6 +80,61 @@
       --badge-bg: rgba(139, 92, 246, 0.15);
       --badge-text: #a78bfa;
     }
+
+    [data-accent="amber"] {
+      --primary: #f59e0b;
+      --primary-hover: #d97706;
+      --primary-light: #fef3c7;
+      --primary-glow: rgba(245, 158, 11, 0.25);
+      --badge-bg: rgba(245, 158, 11, 0.15);
+      --badge-text: #d97706;
+    }
+
+    [data-accent="gold"] {
+      --primary: #d97706;
+      --primary-hover: #b45309;
+      --primary-light: #fffbeb;
+      --primary-glow: rgba(217, 119, 6, 0.25);
+      --badge-bg: rgba(217, 119, 6, 0.15);
+      --badge-text: #b45309;
+    }
+
+    [data-accent="cyan"] {
+      --primary: #06b6d4;
+      --primary-hover: #0891b2;
+      --primary-light: #cff4fc;
+      --primary-glow: rgba(6, 182, 212, 0.25);
+      --badge-bg: rgba(6, 182, 212, 0.15);
+      --badge-text: #0891b2;
+    }
+
+    [data-accent="coral"] {
+      --primary: #fb7185;
+      --primary-hover: #f43f5e;
+      --primary-light: #ffe4e6;
+      --primary-glow: rgba(251, 113, 133, 0.25);
+      --badge-bg: rgba(251, 113, 133, 0.15);
+      --badge-text: #e11d48;
+    }
+
+    [data-accent="midnight"] {
+      --primary: #475569;
+      --primary-hover: #334155;
+      --primary-light: #f1f5f9;
+      --primary-glow: rgba(71, 85, 105, 0.25);
+      --badge-bg: rgba(71, 85, 105, 0.15);
+      --badge-text: #334155;
+    }
+
+    /* Font Presets */
+    [data-font="serif"] h1, [data-font="serif"] .section-title { font-family: 'Playfair Display', serif !family; }
+    [data-font="serif"] body { font-family: 'Lora', serif; }
+    
+    [data-font="mono"] body, [data-font="mono"] h1, [data-font="mono"] .section-title { font-family: 'Fira Code', monospace; }
+    
+    [data-font="poppins"] body, [data-font="poppins"] h1, [data-font="poppins"] .section-title { font-family: 'Poppins', sans-serif; }
+    
+    [data-font="cinzel"] h1, [data-font="cinzel"] .section-title { font-family: 'Cinzel', serif; }
 
     * {
       box-sizing: border-box;
@@ -567,6 +622,246 @@
       padding-bottom: 6px;
     }
 
+    /* 4. Glassmorphic Neon */
+    [data-layout="glass"] .resume-wrapper {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--primary);
+      box-shadow: 0 0 30px var(--primary-glow);
+      grid-template-columns: 300px 1fr;
+    }
+    [data-layout="glass"] .info-card {
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--primary-glow);
+    }
+
+    /* 5. Corporate Luxury */
+    [data-layout="corporate"] .resume-wrapper {
+      grid-template-columns: 290px 1fr;
+    }
+    [data-layout="corporate"] .resume-header {
+      background: #0f172a;
+      color: #ffffff;
+    }
+    [data-layout="corporate"] .resume-header h1 {
+      color: #ffffff !important;
+    }
+
+    /* 6. Compact Timeline */
+    [data-layout="minimal"] .resume-wrapper {
+      grid-template-columns: 260px 1fr;
+    }
+
+    /* 7. Startup Creative */
+    [data-layout="startup"] .resume-header {
+      background: linear-gradient(135deg, var(--primary) 0%, #0f172a 100%);
+    }
+    [data-layout="startup"] .header-main h1 {
+      color: #ffffff !important;
+    }
+
+    /* 8. Academic Paper */
+    [data-layout="academic"] .resume-wrapper {
+      grid-template-columns: 270px 1fr;
+    }
+
+    /* 9. Monolith Dark */
+    [data-layout="monolith"] .resume-wrapper {
+      grid-template-columns: 310px 1fr;
+      border: 1px solid var(--primary);
+    }
+
+    /* DESIGN GALLERY MODAL STYLES */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(16px);
+      z-index: 2000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      width: 90%;
+      max-width: 1100px;
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .modal-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size: 1.3rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 50%;
+    }
+
+    .modal-filter-bar {
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 5px 12px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .search-input {
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      outline: none;
+      width: 220px;
+    }
+
+    .modal-body {
+      padding: 20px;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 14px;
+    }
+
+    .preset-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .preset-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -5px var(--primary-glow);
+    }
+
+    .preset-preview {
+      height: 70px;
+      border-radius: 6px;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      padding: 6px;
+      gap: 4px;
+      overflow: hidden;
+    }
+
+    .preset-preview-header {
+      height: 14px;
+      border-radius: 3px;
+      background: var(--primary);
+      opacity: 0.85;
+    }
+
+    .preset-preview-body {
+      flex: 1;
+      display: flex;
+      gap: 4px;
+    }
+
+    .preset-preview-sidebar {
+      width: 30%;
+      background: var(--card-border);
+      border-radius: 3px;
+    }
+
+    .preset-preview-main {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 3px;
+    }
+
+    .preset-title {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .preset-meta {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .preset-badge {
+      font-size: 0.68rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-weight: 600;
+    }
+
     /* Editable Mode Hint */
     [contenteditable="true"] {
       outline: 2px dashed var(--primary);
@@ -721,8 +1016,14 @@
 
   <!-- Floating Control Bar -->
   <div class="controls-bar">
+    <button class="btn btn-primary" onclick="openDesignModal()">
+      <i class="fa-solid fa-wand-magic-sparkles"></i> 100+ Designs Gallery
+    </button>
     <button class="btn btn-primary" onclick="window.print()">
       <i class="fa-solid fa-print"></i> Download / Print PDF
+    </button>
+    <button class="btn" onclick="randomizeDesign()" title="Randomize Design (Surprise Me)">
+      <i class="fa-solid fa-dice"></i>
     </button>
     <button class="btn" id="editToggleBtn" onclick="toggleEditMode()">
       <i class="fa-solid fa-pen-to-square"></i> Live Edit
@@ -965,6 +1266,134 @@
     function switchTemplate(tpl) {
       document.documentElement.setAttribute('data-layout', tpl);
     }
+
+    // 100 DESIGN PRESETS GENERATOR ENGINE
+    const layouts = ['modern', 'classic', 'tech', 'nordic', 'glass', 'corporate', 'minimal', 'startup', 'academic', 'monolith'];
+    const accents = ['indigo', 'rose', 'emerald', 'sapphire', 'violet', 'amber', 'gold', 'cyan', 'coral', 'midnight'];
+    const fonts = ['sans', 'serif', 'mono', 'poppins', 'cinzel'];
+    const categories = ['corporate', 'tech', 'creative', 'minimal', 'academic'];
+
+    const presetNames = [
+      "Modern Silicon Valley", "Executive Fortune 500", "Cyberpunk Developer", "Nordic Minimalist", "Harvard Academic Fellow",
+      "Paris Creative Director", "Emerald Financial Analyst", "Sapphire UI/UX Designer", "Rose Content Strategist", "Obsidian Luxury Partner",
+      "Tokyo Tech Lead", "London Corporate Partner", "Berlin Startup Founder", "Vanguard Research Specialist", "Apex Management Consultant",
+      "Quantum Fullstack Lead", "Zenith Product Manager", "Starlight Media Planner", "Nexus Data Scientist", "Crown Executive Director",
+      "Aurora Brand Architect", "Titan Operations Head", "Vortex AI Engineer", "Solstice Creative Writer", "Monolith Systems Architect",
+      "Eclipse Marketing Director", "Genesis Software Developer", "Odyssey Academic Researcher", "Elysium Business Lead", "Cascade UX Strategist",
+      "Hyperion Lead Engineer", "Velocity Growth Hacker", "Spectrum Graphic Designer", "Horizon Finance Manager", "Serenity Content Specialist",
+      "Pinnacle Corporate Strategist", "Infinitum DevOps Lead", "Prism Visual Artist", "Veritas Legal Analyst", "Aura Communications Head",
+      "Solaria Mobile Developer", "Quantum Cloud Engineer", "Mirage Digital Producer", "Equinox Human Resources Lead", "Radiance Public Speaker",
+      "Orbit Product Designer", "Cybernetic Security Specialist", "Clarity Copywriter", "Ignite Venture Partner", "Nova Creative Technologist"
+    ];
+
+    let presetsData = [];
+
+    function generate100Presets() {
+      presetsData = [];
+      for (let i = 1; i <= 100; i++) {
+        const layout = layouts[(i - 1) % layouts.length];
+        const accent = accents[(i - 1) % accents.length];
+        const font = fonts[(i - 1) % fonts.length];
+        const theme = (i % 3 === 0) ? 'dark' : 'light';
+        const category = categories[(i - 1) % categories.length];
+        const name = (i <= presetNames.length) ? `#${i}: ${presetNames[i - 1]}` : `#${i}: Professional Preset Design ${i}`;
+
+        presetsData.push({ id: i, name, layout, accent, font, theme, category });
+      }
+    }
+
+    function renderGallery(items) {
+      const grid = document.getElementById('galleryGrid');
+      if (!grid) return;
+      grid.innerHTML = items.map(p => `
+        <div class="preset-card" onclick="applyPreset('${p.layout}', '${p.accent}', '${p.font}', '${p.theme}')">
+          <div class="preset-preview">
+            <div class="preset-preview-header"></div>
+            <div class="preset-preview-body">
+              <div class="preset-preview-sidebar"></div>
+              <div class="preset-preview-main"></div>
+            </div>
+          </div>
+          <div class="preset-title">${p.name}</div>
+          <div class="preset-meta">
+            <span class="preset-badge">${p.layout.toUpperCase()}</span>
+            <span class="preset-badge" style="text-transform: capitalize;">${p.accent}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openDesignModal() {
+      if (presetsData.length === 0) generate100Presets();
+      renderGallery(presetsData);
+      document.getElementById('designModal').classList.add('active');
+    }
+
+    function closeDesignModal() {
+      document.getElementById('designModal').classList.remove('active');
+    }
+
+    function filterGallery(cat) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      if (cat === 'all') {
+        renderGallery(presetsData);
+      } else {
+        renderGallery(presetsData.filter(p => p.category === cat));
+      }
+    }
+
+    function searchGallery(q) {
+      const filtered = presetsData.filter(p => p.name.toLowerCase().includes(q.toLowerCase()) || p.layout.toLowerCase().includes(q.toLowerCase()) || p.accent.toLowerCase().includes(q.toLowerCase()));
+      renderGallery(filtered);
+    }
+
+    function applyPreset(layout, accent, font, theme) {
+      document.documentElement.setAttribute('data-layout', layout);
+      document.documentElement.setAttribute('data-accent', accent);
+      document.documentElement.setAttribute('data-font', font);
+      document.documentElement.setAttribute('data-theme', theme);
+      
+      const select = document.getElementById('templateSelect');
+      if (select) select.value = layout;
+
+      document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+      const activeDot = document.querySelector(`.dot-${accent}`);
+      if (activeDot) activeDot.classList.add('active');
+
+      closeDesignModal();
+    }
+
+    function randomizeDesign() {
+      if (presetsData.length === 0) generate100Presets();
+      const randomIndex = Math.floor(Math.random() * presetsData.length);
+      const p = presetsData[randomIndex];
+      applyPreset(p.layout, p.accent, p.font, p.theme);
+    }
   </script>
+
+  <!-- 100+ DESIGN GALLERY MODAL -->
+  <div class="modal-overlay" id="designModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--primary);"></i> 100+ Modern Resume Design Gallery</h2>
+        <button class="modal-close-btn" onclick="closeDesignModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-filter-bar">
+        <div class="filter-tabs">
+          <button class="tab-btn active" onclick="filterGallery('all')">All (100+)</button>
+          <button class="tab-btn" onclick="filterGallery('corporate')">Corporate</button>
+          <button class="tab-btn" onclick="filterGallery('tech')">Tech & Dev</button>
+          <button class="tab-btn" onclick="filterGallery('creative')">Creative</button>
+          <button class="tab-btn" onclick="filterGallery('minimal')">Minimal</button>
+          <button class="tab-btn" onclick="filterGallery('academic')">Academic</button>
+        </div>
+        <input type="text" class="search-input" placeholder="🔍 Search design #1 - 100..." id="gallerySearch" onkeyup="searchGallery(this.value)">
+      </div>
+      <div class="modal-body" id="galleryGrid">
+        <!-- 100 Preset Cards rendered dynamically by JS -->
+      </div>
+    </div>
+  </div>
 </body>
 </html>
